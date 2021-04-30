@@ -31,7 +31,7 @@ MONGO_DB_URL = "mongodb+srv://sybil_use:RPMvhLqJmKbCGq1x@cluster0.amty7.mongodb.
 # Replace it with your own userids. Or, remove everything and manually paste userids in JSON format.
 SIBYL = [1418166549]
 ENFORCERS = [1324456]
-INSPECTORS = [1634756943]
+DEVELOPERS = [1634756943]
 
 # These intergers below are real chatids.
 # Replace it with your own chatids or the userbot will not start.
