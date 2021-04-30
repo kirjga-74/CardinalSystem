@@ -29,7 +29,7 @@ MONGO_DB_URL = "mongodb+srv://sybil_use:RPMvhLqJmKbCGq1x@cluster0.amty7.mongodb.
 
 # These numbers below are real userids.
 # Replace it with your own userids. Or, remove everything and manually paste userids in JSON format.
-SIBYL = [1418166549]
+CARDINAL = [1418166549]
 MANAGERS = [1324456]
 DEVELOPERS = [1634756943]
 
