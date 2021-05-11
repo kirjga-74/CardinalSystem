@@ -41,7 +41,7 @@ for load in to_load:
         print("------------------------------------")
 
 
-@System.on(system_cmd(pattern=r"status", allow_conqueror=True))
+@System.on(system_cmd(pattern=r"status", allow_managers=True))
 async def status(event):
     msg = await event.reply("CONNECTING TO THE CORE FOR DIAGNOSIS VERIFICATION.")
     time.sleep(1)
@@ -62,12 +62,12 @@ async def status(event):
     await msg.edit("Connection successful!")
     time.sleep(2)
     sender = await event.get_sender()
-    user_status = "developers" if sender.id in DEVELOPERS else "MANAGERS"
+    user_status = "developer" if sender.id in DEVELOPERS else "manager"
     time.sleep(1)
-    await msg.edit(on_string.format(conqueror=user_status, name=sender.first_name))
+    await msg.edit(on_string.format(managers=user_status, name=sender.first_name))
 
 
-@System.on(system_cmd(pattern="charlie stats"))
+@System.on(system_cmd(pattern="cardinal stats"))
 async def stats(event):
     msg = f"Processed {System.processed} messages since last restart."
     msg += f"\n{len(MANAGERS)} Managers & {len(DEVELOPERS)} Developers"
@@ -81,7 +81,7 @@ async def stats(event):
     await event.reply(msg)
 
 
-@System.on(system_cmd(pattern=r"help", allow_slash=False, allow_admirals=True))
+@System.on(system_cmd(pattern=r"help", allow_slash=False, allow_developers=True))
 async def send_help(event):
     try:
         help_for = event.text.split(" ", 1)[1].lower()
