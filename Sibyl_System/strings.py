@@ -1,7 +1,10 @@
 on_string = """
-Connected to seed!
-Welcome {manager} {name}
-Your validity is successfully verified.
+Connected to Eagle system
+Welcome to Eagle system • Server Core
+⭐⭐⭐⭐⭐
+RANK:{manager}
+NAME : {name}
+You are an authorized user!
 """
 
 # Make sure not to change these too much
