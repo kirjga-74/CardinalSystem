@@ -26,7 +26,7 @@ def get_data_from_url(url: str) -> tuple:
     return (match.group(4), match.group(5))
 
 
-@System.on(system_cmd(pattern=r"judge ", allow_managers=True))
+@System.on(system_cmd(pattern=r"scan ", allow_managers=True))
 async def scan(event):
     replied = await event.get_reply_message()
     flags, reason = seprate_flags(event.text)
