@@ -99,7 +99,7 @@ async def scan(event):
         if event.chat.username
         else f"t.me/c/{event.chat.id}/{event.message.id}"
     )
-    await event.reply("Connecting to Cardinal for a cymatic scan.")
+    await event.reply("Connecting to Eagle for a cymatic scan.")
     if req_proof and req_user:
         await replied.forward_to(Sibyl_logs)
         await System.gban(
@@ -136,7 +136,7 @@ async def revive(event):
         return
     a = await event.reply("Reverting bans..")
     await System.ungban(user_id, f" By //{(await event.get_sender()).id}")
-    await a.edit("Revert request sent to cardinal. This might take 5minutes or so.")
+    await a.edit("Revert request sent to Eagle. This might take 5minutes or so.")
 
 
 @System.on(system_cmd(pattern=r"cardinal logs"))
