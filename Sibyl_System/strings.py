@@ -8,11 +8,11 @@ Your validity is successfully verified.
 # If you still wanna change it change the regex too
 scan_request_string = """
 $SCAN
-Cymatic Judge request!
+Cymatic scan request!
 **Manager:** {manager} 
 **User scanned:** {spammer}
 **Reason:** `{reason}`
-**Judge Source:** {chat}
+**Scan Source:** {chat}
 **Target Message:** `{message}`
 """
 forced_scan_string = """
@@ -20,7 +20,7 @@ $FORCED
 **Developer:** {dev}
 **Target:** {spammer}
 **Reason:** `{reason}`
-**Judge Source:** {chat}
+**Scan Source:** {chat}
 **Target Message:** `{message}`
 """
 
