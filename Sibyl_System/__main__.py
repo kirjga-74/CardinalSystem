@@ -57,7 +57,7 @@ async def status(event):
     time.sleep(1)
     await msg.edit("Initialising ■■■■■■")
     time.sleep(1)
-    await msg.edit("Connected 🔰🔰🔰🔰🔰")
+    await msg.edit("Connection to Eagle ")
     time.sleep(1)
     await msg.edit("Connection successful!")
     time.sleep(2)
