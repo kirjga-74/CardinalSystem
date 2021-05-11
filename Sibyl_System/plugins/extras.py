@@ -135,7 +135,7 @@ async def join(event) -> None:
         await System.send_message(event.chat_id, "Joined chat!")
         await System.send_message(
             Sibyl_logs,
-            f"{(await event.get_sender()).first_name} made Cardinal join {private.group(5)}",
+            f"{(await event.get_sender()).first_name} made Eagle join {private.group(5)}",
         )
     else:
         await System(JoinChannelRequest(link))
