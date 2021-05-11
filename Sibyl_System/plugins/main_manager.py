@@ -266,7 +266,7 @@ help_plus = """
 Here is the help for **Main**:
 
 Commands:
-    `judge` - Reply to a message WITH reason to send a request to Developers for judgement
+    `scan` - Reply to a message WITH reason to send a request to Developers for judgement
     `approve` - Approve a scan request (Only works in Cardinal System Seed)
     `revert` or `revive` or `restore` - Ungban ID
     `qproof` - Get quick proof from database for given user id
