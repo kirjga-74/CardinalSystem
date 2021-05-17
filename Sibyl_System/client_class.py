@@ -53,11 +53,11 @@ class SibylClient(TelegramClient):
         if not auto:
             await self.send_message(
                 logs,
-                f"/gban [{target}](tg://user?id={target}) {reason} // By {conqueror} | #{msg_id}",
+                f"/gban [{target}](tg://user?id={target}) {reason} // By {manager} | #{msg_id}",
             )
             await self.send_message(
                 logs,
-                f"/fban [{target}](tg://user?id={target}) {reason} // By {conqueror} | #{msg_id}",
+                f"/fban [{target}](tg://user?id={target}) {reason} // By {manager} | #{msg_id}",
             )
         else:
             await self.send_message(
@@ -71,7 +71,7 @@ class SibylClient(TelegramClient):
         if bot:
             await self.send_message(
                 Sibyl_approved_logs,
-                bot_gban_string.format(conqueror=conqueror, scam=target, reason=reason),
+                bot_gban_string.format(manager=manager, scam=target, reason=reason),
             )
         else:
             await self.send_message(
