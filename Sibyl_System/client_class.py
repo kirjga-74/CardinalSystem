@@ -6,6 +6,7 @@ from .strings import (
     forced_scan_string,
 )
 from Sibyl_System import (
+    
     Sibyl_logs,
     Sibyl_approved_logs,
     GBAN_MSG_LOGS,
@@ -29,7 +30,7 @@ class SibylClient(TelegramClient):
         self.processed = 0
         if BOT_TOKEN:
             self.bot = TelegramClient(
-                "SibylSystem", api_id=API_ID_KEY, api_hash=API_HASH_KEY
+                "Sibylystem", api_id=API_ID_KEY, api_hash=API_HASH_KEY
             ).start(bot_token=BOT_TOKEN)
         super().__init__(*args, **kwargs)
 
@@ -52,11 +53,11 @@ class SibylClient(TelegramClient):
         if not auto:
             await self.send_message(
                 logs,
-                f"/gban [{target}](tg://user?id={target}) {reason} // By {manager} | #{msg_id}",
+                f"/gban [{target}](tg://user?id={target}) {reason} // By {conqueror} | #{msg_id}",
             )
             await self.send_message(
                 logs,
-                f"/fban [{target}](tg://user?id={target}) {reason} // By {manager} | #{msg_id}",
+                f"/fban [{target}](tg://user?id={target}) {reason} // By {conqueror} | #{msg_id}",
             )
         else:
             await self.send_message(
@@ -70,7 +71,7 @@ class SibylClient(TelegramClient):
         if bot:
             await self.send_message(
                 Sibyl_approved_logs,
-                bot_gban_string.format(manager=manager, scam=target, reason=reason),
+                bot_gban_string.format(conqueror=conqueror, scam=target, reason=reason),
             )
         else:
             await self.send_message(
@@ -94,9 +95,12 @@ class SibylClient(TelegramClient):
             logs = self.gban_logs
         else:
             logs = self.log
+        if not (await delete_gban(target)):
+            return False
         await self.send_message(
             logs, f"/ungban [{target}](tg://user?id={target}) {reason}"
         )
         await self.send_message(
             logs, f"/unfban [{target}](tg://user?id={target}) {reason}"
         )
+        return True
