@@ -27,7 +27,7 @@ def get_data_from_url(url: str) -> tuple:
 
 
 @System.on(system_cmd(pattern=r"block ", allow_managers=True))
-async def scan(event):
+async def block(event):
     replied = await event.get_reply_message()
     flags, reason = seprate_flags(event.text)
     if len(reason.split(" ", 1)) == 1:
