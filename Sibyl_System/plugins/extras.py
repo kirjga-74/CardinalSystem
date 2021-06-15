@@ -28,8 +28,8 @@ except BaseException:
 json_file = os.path.join(os.getcwd(), "Sibyl_System\\elevated_users.json")
 
 
-@System.on(system_cmd(pattern=r"addmng", allow_developers=True))
-async def addmng(event) -> None:
+@System.on(system_cmd(pattern=r"addsbm", allow_developers=True))
+async def addsbm(event) -> None:
     if event.message.reply_to_msg_id:
         replied = await event.get_reply_message()
         if replied:
@@ -45,7 +45,7 @@ async def addmng(event) -> None:
                 "I haven't interacted with that user! Meh, Will add them anyway"
             )
     if u_id in MANAGERS:
-        await System.send_message(event.chat_id, "That person is already Manager!")
+        await System.send_message(event.chat_id, "That person is already spam block manager!")
         return
     if HEROKU:
         config["MANAGERS"] = os.environ.get("MANAGERS") + " " + str(u_id)
@@ -55,7 +55,7 @@ async def addmng(event) -> None:
         data["MANAGERS"].append(u_id)
         with open(json_file, "w") as file:
             json.dump(data, file, indent=4)
-        await System.send_message(event.chat_id, "Added to managers, Restarting...")
+        await System.send_message(event.chat_id, "Added to spam block manager, Restarting...")
         if not event.from_id.user_id in CARDINAL:
             await add_manager(event.from_id.user_id, u_id)
         await System.disconnect()
@@ -68,8 +68,8 @@ async def addmng(event) -> None:
     )
 
 
-@System.on(system_cmd(pattern=r"rmmng", allow_developers=True))
-async def rmmng(event) -> None:
+@System.on(system_cmd(pattern=r"rsbm", allow_developers=True))
+async def rsbm(event) -> None:
     if event.message.reply_to_msg_id:
         replied = await event.get_reply_message()
         u_id = replied.sender.id
@@ -109,7 +109,7 @@ async def rmmng(event) -> None:
     )
 
 
-@System.on(system_cmd(pattern=r"managers", allow_developers=True))
+@System.on(system_cmd(pattern=r"spamblockmanager", allow_developers=True))
 async def listuser(event) -> None:
     msg = "Managers:\n"
     for z in MANAGERS:
@@ -135,14 +135,14 @@ async def join(event) -> None:
         await System.send_message(event.chat_id, "Joined chat!")
         await System.send_message(
             Sibyl_logs,
-            f"{(await event.get_sender()).first_name} made Eagle join {private.group(5)}",
+            f"{(await event.get_sender()).first_name} made spam blocker join {private.group(5)}",
         )
     else:
         await System(JoinChannelRequest(link))
         await System.send_message(event.chat_id, "Joined chat!")
         await System.send_message(
             Sibyl_logs,
-            f"{(await event.get_sender()).first_name} made Eagle join {link}",
+            f"{(await event.get_sender()).first_name} made spam blocker  join {link}",
         )
 
 
@@ -307,11 +307,8 @@ Format : addmng <user id / as reply>
 `rmmng` - Removes a user from manager.
 Format : rmenf <user id / as reply>
 `managers` - Lists all managers.
-`adddev` - Adds a user as an Developer.
 Format : adddev <user id / as reply>
-`rmdev` - Removes a user from Developer.
 Format : rmdev <user id / as reply>
-`developers` - Lists all inspectors.
 `join` - Joins a chat.
 Format : join <chat username or invite link>
 `leave` - Leaves a chat.
